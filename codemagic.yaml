@@ -6,7 +6,10 @@ workflows:
     environment:
       java: 11
     scripts:
+      - echo "Setting gradlew executable"
+      - chmod +x ./gradlew
+      - echo "Running clean build..."
       - ./gradlew clean
       - ./gradlew assembleRelease
     artifacts:
-      - app/build/outputs/apk/release/app-release.apk
+      - app/build/outputs/**/*.apk
